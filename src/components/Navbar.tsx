@@ -18,16 +18,28 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 md:px-10 py-4 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? "bg-white/80 backdrop-blur-lg shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center relative z-50">
           <img src="/logo.png" alt="RoboTech Logo" className="h-10 w-auto" />
         </a>
 
@@ -61,7 +73,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground relative z-50"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -69,13 +81,21 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 z-40 bg-white pt-20 px-6 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-x-0 top-0 z-40 bg-white/95 backdrop-blur-sm h-screen transform transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <nav className="flex flex-col space-y-6">
+        <nav className="flex flex-col space-y-6 pt-24 px-6 max-w-7xl mx-auto">
           <a
             href="#courses"
             className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
