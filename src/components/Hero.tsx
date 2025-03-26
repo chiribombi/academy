@@ -76,7 +76,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="lg:col-span-5 relative">
+          <div className="hidden lg:block lg:col-span-5 relative">
             <div className="relative w-full aspect-square">
               <div className="absolute inset-0 rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/30 mix-blend-multiply z-10"></div>
