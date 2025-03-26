@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 const Hero = () => {
@@ -81,15 +80,15 @@ const Hero = () => {
             <div className="relative w-full aspect-square">
               <div className="absolute inset-0 rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/30 mix-blend-multiply z-10"></div>
-                <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center animate-scale-in"></div>
+                <div className="w-full h-full bg-[url('/ur30.jpeg')] bg-cover bg-center animate-scale-in"></div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-72 h-72 rounded-2xl overflow-hidden rotate-6 animate-floating">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/20 mix-blend-multiply z-10"></div>
-                <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                <div className="w-full h-full bg-[url('/plc.jpg')] bg-cover bg-center"></div>
               </div>
               <div className="absolute -top-8 -left-8 w-64 h-64 rounded-2xl overflow-hidden -rotate-6 animate-floating" style={{ animationDelay: '1s' }}>
                 <div className="absolute inset-0 bg-gradient-to-bl from-primary/10 to-accent/20 mix-blend-multiply z-10"></div>
-                <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                <div className="w-full h-full bg-[url('/siemens.jpg')] bg-cover bg-center"></div>
               </div>
             </div>
           </div>
